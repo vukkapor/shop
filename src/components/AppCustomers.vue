@@ -2,7 +2,7 @@
 <div>
   <ul>
     <li v-for="(customer, index) in customers" :key="index">
-      <SingleCustomer :customer="customer" @delete-customer="deleteCustomer(customer)"/>
+      <SingleCustomerList :customer="customer" @delete-customer="deleteCustomer(customer)"/>
     </li>
   </ul>
   <CustomerForm/>
@@ -12,8 +12,9 @@
 <script>
 
 import { customerService } from '@/services/customers'
-import SingleCustomer from '@/components/SingleCustomer'
+import SingleCustomerList from '@/components/SingleCustomerList'
 import CustomerForm from '@/components/CustomerForm'
+import SingleCustomer from '@/components/SingleCustomer'
 
 export default {
   data() {
@@ -23,8 +24,9 @@ export default {
   },
   
   components: {
-    SingleCustomer,
-    CustomerForm
+    SingleCustomerList,
+    CustomerForm,
+    SingleCustomer
   },
 
   methods: {

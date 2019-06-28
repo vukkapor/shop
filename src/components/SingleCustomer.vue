@@ -3,20 +3,27 @@
     Ime i prezime: {{customer.fullName}}
     <br>
     Email: {{customer.email}}
-    <button type="submit" @click="handleDelete">Delete</button>
+    <br>Kupljeni proizvodi:
+    <table style="width:100%">
+      <tr>
+        <th>Proizvod</th>
+      </tr>
+      <tr v-for="(proizvod, index) in customer.products" :key="index">
+        <td>{{proizvod}}</td>
+      </tr>
+    </table>
   </div>
 </template>
 
+
 <script>
+import { customerService } from "@/services/customers";
+
 export default {
-    props: ['customer'],
-
-
-
-    methods: {
-        handleDelete() {
-            this.$emit("delete-customer")
-        }
+  computed: {
+    customer() {
+      return customerService.find(this.$route.params.id);
     }
+  }
 };
 </script>
