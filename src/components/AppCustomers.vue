@@ -5,6 +5,7 @@
       <SingleCustomer :customer="customer" @delete-customer="deleteCustomer(customer)"/>
     </li>
   </ul>
+  <CustomerForm/>
 </div>
 </template>
 
@@ -12,6 +13,7 @@
 
 import { customerService } from '@/services/customers'
 import SingleCustomer from '@/components/SingleCustomer'
+import CustomerForm from '@/components/CustomerForm'
 
 export default {
   data() {
@@ -21,7 +23,8 @@ export default {
   },
   
   components: {
-    SingleCustomer
+    SingleCustomer,
+    CustomerForm
   },
 
   methods: {
